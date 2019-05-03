@@ -1,0 +1,36 @@
+allprojects {
+	apply plugin: 'eclipse'
+}
+
+subprojects {
+	apply plugin: 'java'
+	apply plugin: 'application'
+	apply plugin: 'jacoco'
+	
+	repositories {
+    	jcenter()
+    	mavenCentral()
+	}
+	
+	dependencies {
+    	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.1.1'
+    	testImplementation 'org.junit.jupiter:junit-jupiter-params:5.1.1'
+    	testImplementation 'org.mockito:mockito-core:2.27.0'
+    	testImplementation 'org.mockito:mockito-junit-jupiter:2.27.0'
+    	testImplementation 'org.hamcrest:hamcrest:2.1'
+    	
+    	testRuntime 'org.junit.jupiter:junit-jupiter-engine:5.1.1'
+	}
+	
+	test {
+		useJUnitPlatform()
+	}
+
+	jacocoTestReport {
+		reports {
+			xml.enabled false
+			csv.enabled false
+			html.destination file("${buildDir}/jacocoHtml")
+		}
+	}
+}

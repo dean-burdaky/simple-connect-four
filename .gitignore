@@ -1,0 +1,12 @@
+
+*.class
+*.jar
+hs_err_pid*
+
+bin/
+tmp/
+.settings/
+.gradle/
+build/
+
+!gradle-wrapper.jar

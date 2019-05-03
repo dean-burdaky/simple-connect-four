@@ -1,0 +1,3 @@
+rootProject.name = 'simple-connect-four'
+
+include 'simple-connect-four-server'
